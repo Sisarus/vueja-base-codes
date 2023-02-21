@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="basic-event" class="demo">
+      <button @click="counter += 1">Add 1</button>
+      <p>The Button above has been clicked {{counter}} times.</p>
+    </div>
+
+    <div id="event-with-method" class="demo">
+      <button v-on:click="greet">Greet</button>
+    </div>
+
+    <div id="inline-handler" class="demo">
+      <button v-on:click="say('hi')">Say hi</button>
+      <button v-on:click="say('what')">Say what</button>
+    </div>
+
+    <div id="v-model-basic" class="model">
+      <input v-model="message" placeholder="edit me" />
+      <p>Message is: {{ message }}</p>
+    </div>
+
+    <div id="v-model-textarea" class="demo">
+      <span>Multiline message is:</span>
+      <p style="white-space: pre-line">{{ message }}</p>
+      <br />
+      <textarea v-model="message" placeholder="Add multiple lines"></textarea>
+    </div>
+
+    <div id="v-model-checkbox" class="demo">
+      <input type="checkbox" id="checkbox" v-model="checked" />
+      <label for="checkbox">{{ checked }}</label>
+    </div>
+
+    <div id="v-model-select" class="demo">
+      <select v-model="selected" multiple>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+      </select>
+      <br />
+      <span>Selected: {{ selected }}</span>
+    </div>
+
+    <div id="v-model-select-dynamic" class="demo">
+      <select v-model="selected">
+        <option v-for="option in options" v-bind:value="option.value">
+          {{ option.text }}
+        </option>
+      </select>
+      <span>Selected: {{ selected }}</span>
+    </div>
+
+    <!-- `picked` is a string "a" when checked -->
+    <input type="radio" v-model="picked" value="a" />
+
+    <!-- `toggle` is either true or false -->
+    <input type="checkbox" v-model="toggle" />
+
+    <!-- `selected` is a string "abc" when the first option is selected -->
+    <select v-model="selected">
+      <option value="abc">ABC</option>
+    </select>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
